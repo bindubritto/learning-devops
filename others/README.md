@@ -107,35 +107,3 @@ Now, we want to serve out static html file.
 Ekta copy command er 2 ta part.
 
 COPY Source Destination
-
-## class - 04
-
-Server a packet dhuktese interface diye, eth0 te. ethernet interface. eth0 is an interface. Aita first a kernel namespace a dhuklo.
-
-Packet a thake onek kichu. Source IP, Destination IP, Source Port, Destination Port, Payload, etc.
-
-So, kono ekta packet jodi 8080 as it's destination port niye ashe, tar mane ekta packet er destination port holo 8080.
-
-And amra amader IP table er Port Forwarding rule ta eivabe bole diyechi j, jodi keu 8080 port a ashte chay, tahole se jeno
-
-172.13.0.3:80 port a jay. Eita amar port forwarding rule hisebe bola ache. So, L2 bridge er network range holo 172.13.0.0/16
-
-Jokhoni amra kono container k emon port forwading rule dibo, se layer-2 bridge er pechone create hobe.
-
-World er shob network interface er e mac address thake.
-
-We'll create 2 microservice.
-
--- Internal Service - bahirer world a expose korbo na.
-
--- External Service - Jeita port diye expose korbo, 8081 port.
-
--- So design ta hobe most likely emon.
-
-1. Bahirer world er user ekta request korbe 8081 a. Ei request ta first a ashbe L2 bridge a. Then seita jabe, external service a,
-then sei external service abar call dibe internal service k, through L2 bridge. Then internal service response back korbe, And sei response
-abar external service bahirer world a back korbe.
-
--- External as N2, Internal as N1
-
--- World -> 8081 port -> N2 -> N1 -> reponse back to N2 -> Then back to outer world.
