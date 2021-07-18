@@ -12,15 +12,19 @@ in the journey to be a Devops.
 
 ### All Command
 
-Build a docker image with a name tag where dockerfile is located on the same folder("." means location of dockerfile)
+- Build a docker image with a name tag where dockerfile is located on the same folder("." means location of dockerfile)
 
 ```sh
 sudo docker build -t <image_name> .
 ```
 
+- To run specific docker image
+
 ```sh
-sudo docker run class1
+sudo docker run <image_name>
 ```
+
+- List of all running docker container
 
 ```sh
 sudo docker ps
@@ -28,4 +32,20 @@ sudo docker ps
 
 ```sh
 sudo docker exec -it <container_id> sh
+```
+
+- To stop a particular docker container
+
+```sh
+sudo docker stop <container_id>
+```
+
+```sh
+ifconfig
+```
+
+- Clinet URL or cURL is a command-line tool for getting or sending data including files using URL syntax.
+
+```sh
+curl http://localhost:8090/ or curl www.google.com
 ```

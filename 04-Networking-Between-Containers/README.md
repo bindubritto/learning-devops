@@ -19,6 +19,18 @@
     docker build -t internal .
 ```
 
+```sh
+    docker build run -p 8090:8080 internal
+```
+
+```sh
+curl http://localhost:8090/
+```
+
+```sh
+sudo docker stop <container_id>
+```
+
 ## class - 04
 
 Server a packet dhuktese interface diye, eth0 te. ethernet interface. eth0 is an interface. Aita first a kernel namespace a dhuklo.
