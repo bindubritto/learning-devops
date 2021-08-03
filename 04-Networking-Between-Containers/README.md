@@ -59,6 +59,4 @@ We'll create 2 microservice.
 then sei external service abar call dibe internal service k, through L2 bridge. Then internal service response back korbe, And sei response
 abar external service bahirer world a back korbe.
 
--- External as N2, Internal as N1
-
--- World -> 8081 port -> N2 -> N1 -> reponse back to N2 -> Then back to outer world.
+-- World -> 8081 port -> External -> Internal -> reponse back to External -> Then back to outer world.

@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const axios = require('axios')
 
 // Constants
 const PORT = 8081;
@@ -8,10 +9,10 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
-
-const INTERNAL_API = "http://localhost:8080/api/v1/internal";
-
 app.use(express.json());
+
+
+const INTERNAL_API = "http://172.17.0.2:8080/api/v1/internal";
 
 
 app.get('/', (request, response) => {
@@ -27,7 +28,7 @@ app.get('/api/v1/external', async (request, response) => {
 
   try{
     const internalResponse = await axios.get(INTERNAL_API);
-    console.log('internal response ', internalResponse.body);
+    console.log('internal response ', internalResponse.data);
     
     // const finalResponse = {
     //   msg: 'communication successful',

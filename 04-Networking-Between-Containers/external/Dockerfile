@@ -16,8 +16,8 @@ RUN npm install
 # Bundle app source. Copy everything form root directory to working directory
 COPY . .
 
-# Expose with 8080 port to outer world from a container
-EXPOSE 8080
+# Expose with 8081 port to outer world from a container
+EXPOSE 8081
 
-# run internal.js file
-CMD [ "node", "internal.js" ]
+# run external.js file
+CMD [ "node", "external.js" ]

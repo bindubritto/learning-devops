@@ -3,7 +3,7 @@
 Learning Devops is super fun and interesting to me. This is a repository which contains my notes and study materials
 in the journey to be a Devops.
 
-## index
+## Index
 
 - [01-Introduction to Devops](https://github.com/bindubritto/learning-devops/tree/main/01-Introduction-to-Devops)
 - [02-Building Docker Image](https://github.com/bindubritto/learning-devops/tree/main/02-Building-Docker-Image)
@@ -40,6 +40,12 @@ sudo docker exec -it <container_id> sh
 sudo docker stop <container_id>
 ```
 
+- To inspect a particular docker container
+
+```sh
+sudo docker inspect <container_id>
+```
+
 ```sh
 ifconfig
 ```
@@ -48,4 +54,10 @@ ifconfig
 
 ```sh
 curl http://localhost:8090/ or curl www.google.com
+```
+
+- To find container ID.
+
+```sh
+docker inspect <container_id or name> | grep IPAddress
 ```
