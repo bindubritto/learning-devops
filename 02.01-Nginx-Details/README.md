@@ -17,4 +17,14 @@ We can use nginx for mainly 2 purpose
 
 - serve different content from different folder.
 
-- nginx -s stop or reload
+To run nginx server
+
+```sh
+nginx
+```
+
+To stop or reload nginx server
+
+```sh
+nginx -s stop or reload
+```
