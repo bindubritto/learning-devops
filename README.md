@@ -104,3 +104,11 @@ ifconfig
 ```sh
 sudo iptables -L
 ```
+
+- To see docker network
+
+```sh
+sudo docker network ls
+
+sudo docker network inspect <L2-bridge-name>
+```
