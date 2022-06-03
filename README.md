@@ -46,10 +46,6 @@ sudo docker stop <container_id>
 sudo docker inspect <container_id>
 ```
 
-```sh
-ifconfig
-```
-
 - Clinet URL or cURL is a command-line tool for getting or sending data including files using URL syntax.
 
 ```sh
@@ -60,4 +56,51 @@ curl http://localhost:8090/ or curl www.google.com
 
 ```sh
 docker inspect <container_id or name> | grep IPAddress
+```
+
+- TCP Dump at en0 (mac)/ network-interface-name en0, docker0
+
+```sh
+sudo tcpdump -i en0
+```
+
+- To change permission
+
+```sh
+sudo chmod 400 <cert file/ pem file>
+```
+
+- To login server
+
+```sh
+ssh -i <cert or pem file> username@ip
+
+exm: ssh -i xyz.cer ubuntu@65.0.173.64
+```
+
+- Install docker in linux server
+
+```sh
+sudo apt install docker.io
+```
+
+- Restart docker and check status
+
+```sh
+sudo systemctl restart docker
+sudo systemctl status docker
+```
+
+- Install network inspect tools
+
+```sh
+sudo apt install net-tools
+
+ifconfig
+```
+
+- IP Tables
+
+```sh
+sudo iptables -L
 ```
