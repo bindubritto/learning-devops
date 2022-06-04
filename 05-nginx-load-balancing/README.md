@@ -68,3 +68,8 @@ When we inspect that bridge network, we'll able to see a whole different subnet 
 
 Jokhon amra docker compose file a 2 ta service launch korlam tokhon docker L2 ekta bridge create holo. Sei bridge er under a
 service 2 ta k 2 ta alada IP diye bind korlo.
+
+So, jokhon amader emon aro onek service thakbe tokhon manage kora tough hoye jabe. minimum 2 ta jaygay change korte hobe, nginx er
+config a, and oi service er dockerfile a.
+
+So, we need something, right?
