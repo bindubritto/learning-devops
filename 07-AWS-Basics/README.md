@@ -6,4 +6,6 @@
 - Deploy EC2 under a subnet
 - Define Security group (which will attached to switch)
 - Route Table will associate with switch (subnet acctually) and default gateway is 10.10.0.0/16 (which is local in our example)
-- h
+
+If server is not responding or unreachable, then packet is not sending.
+If server have a timeout, then packet is not coming from that server.
