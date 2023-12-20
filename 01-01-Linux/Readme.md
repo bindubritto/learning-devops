@@ -26,7 +26,7 @@ For Change Directory
 cd
 ```
 
-Print working directory
+Present working directory
 
 ```sh
 pwd
@@ -209,4 +209,17 @@ sudo su
 ```sh
 $ means normal user
 '#' means super user
+```
+
+## Abhisekh Veermalla
+
+```sh
+Memory
+free -g
+
+CPU
+nproc
+
+Disc
+df -h
 ```

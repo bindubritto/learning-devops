@@ -14,3 +14,10 @@ sudo systemctl restart docker
 sudo systemctl enable docker
 sudo systemctl status docker
 ```
+
+```sh
+kubectl cluster-info
+kubectl get nodes
+kubectl get pods
+
+```
