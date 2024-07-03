@@ -88,7 +88,7 @@ rwx for the group associated with the directory.
 rwx for others (everyone else).
 ```
 
-Move
+Move file or directory
 
 ```sh
 mv old new
