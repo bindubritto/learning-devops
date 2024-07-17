@@ -80,3 +80,76 @@ cd --help
 apropos modpr
 
 ```
+
+### BASH Shell
+
+Shell Types
+
+Bourne Shell (sh)
+C Shell (csh or tcsh)
+Korn Shell (ksh)
+Z Shell (zsh)
+Bourne Again Shell (bash)
+
+```sh
+echo $SHELL
+```
+
+To Change Shell
+
+```sh
+chsh
+```
+
+Set Alias
+
+```sh
+alias dt=date
+```
+
+```sh
+env
+export OFFICE=pathao
+echo $OFFICE
+
+echo $LOGNAME
+echo $PATH
+```
+
+
+
+To add new path variable
+```sh
+export PATH=$PATH:path_of_executable
+
+example
+
+export PATH=$PATH:/opt/obs/bin
+```
+
+
+[~]$
+
+~ = Present working directory
+$ = User Prompt Symbol
+
+
+echo $PS1
+
+[\W]$
+
+\W = Present working directory = ~ 
+
+
+
+PS1="ubuntu-server:"
+
+PS1="[\d \t \u@\h:\w ] $"
+
+
+
+echo 'export MY_VARIABLE="example_value"' >> ~/.profile
+echo 'alias ll="ls -l"' >> ~/.profile
+echo 'alias up="uptime"' >> ~/.profile
+
+echo 'export PROJECT="MERCURY"' >> ~/.profile
