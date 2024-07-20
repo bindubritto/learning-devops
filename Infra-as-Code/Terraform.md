@@ -92,3 +92,33 @@ provider_resource_name -> in this way, tf define resources
 
 
 Terraform is idempotent. (always gives the same result)
+
+
+
+
+
+# Remove Resources
+
+Ways
+
+1. Removing from config file
+2. Using TF command -
+
+```sh
+terraform destroy  -target aws_subnet.dev-subnet-2
+```
+
+Recommended way is
+
+- Apply Changes through config file. This is source of truth.
+- It is IaC. Code should represent the current infra status
+
+```sh
+terraform apply -auto-approve
+```
+
+To destroy whole infra
+
+```sh
+terrafom destroy
+```
