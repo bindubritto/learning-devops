@@ -120,5 +120,23 @@ terraform apply -auto-approve
 To destroy whole infra
 
 ```sh
-terrafom destroy
+terraform destroy
+```
+
+# State
+
+terraform.tfstate file
+
+- JSON file, where TF stores the state about our real world resources of our managed infra
+
+
+terraform.tfstate.backup file
+
+- For previous state. Logs all previous state data
+
+
+```sh
+terraform state
+terraform state list
+terraform state show <rosource_name>
 ```
