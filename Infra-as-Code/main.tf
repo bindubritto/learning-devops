@@ -38,5 +38,15 @@ resource "aws_subnet" "dev-subnet-2" {
   }
 }
 
+// we can use this output value
+
+output "dev-vpc-id" {
+  value = aws_vpc.development-vpc.id
+}
+
+output "dev-subnet-id" {
+  value = aws_subnet.dev-subnet-1.id
+}
+
 
 // 3rd apply - giving name to resources
