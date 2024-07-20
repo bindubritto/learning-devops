@@ -140,3 +140,43 @@ terraform state
 terraform state list
 terraform state show <rosource_name>
 ```
+
+
+
+
+# Variables
+
+variables are like function arguments
+
+3 ways to assigning values into variable
+
+1. in apply time, we can pass value. This is for testing, not recommended for real use case.
+
+2. 
+
+```sh
+terraform apply -var "subnet_cidr_block=10.0.30.0/24"
+```
+
+3. Most efficient, best practice.
+
+Creating a new variable files, and read value from that file.
+
+
+
+Use Case of Variables
+
+1. Replicate same infra for different environments
+2. To use specific file for specific environment
+
+```sh
+terraform apply -var-file terraform-dev.tfvars
+```
+
+
+# Default value of variables
+
+default keyword
+
+
+type keyword
