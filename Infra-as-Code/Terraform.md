@@ -180,3 +180,28 @@ default keyword
 
 
 type keyword
+
+
+
+# Environment Variables
+
+2 ways we can do it.
+
+1st way
+
+using env variable. We need to export those variables into local machines, then apply
+
+
+2nd way
+
+set credentials to .aws folder
+
+```sh
+aws configure
+```
+
+Another way
+
+```sh
+export TF_VARS_avail_zone="us_east_1a"
+```
