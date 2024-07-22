@@ -34,3 +34,7 @@ Default Subnets
 Network ACL (NACL) -> Subnet Level
 Security Group -> Server Level
 
+
+## Note
+
+Running script after provisioning server is not actually TF type of work. It's like configuration management. Installing docker, yum update, adding user-group and etc. So, It's very good to practice Terraform + Ansible to do such kind of task. TF will handle to provisioning the infra and Ansible will manage the rest.
