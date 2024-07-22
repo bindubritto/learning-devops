@@ -13,6 +13,7 @@ But before doing that, we need to create the whole infra using terraform.
 1. Create custom VPC
 2. Create custom Subnet
 3. Create Route Table & Internet Gateway
+3.1. Association subnet with route table
 4. Provision EC2 Instance
 5. Deploy nginx Docker Container
 6. Create Security Group (Firewall)
