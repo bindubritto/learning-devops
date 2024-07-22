@@ -17,7 +17,7 @@ But before doing that, we need to create the whole infra using terraform.
 4. Provision EC2 Instance
 5. Deploy nginx Docker Container
 6. Create Security Group (Firewall)
-7. SSH & Http for that EC2.
+7. SSH & Http for that EC2. (port - 8080, 22)
 
 
 Best Practice
