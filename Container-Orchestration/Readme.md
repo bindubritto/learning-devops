@@ -8,7 +8,7 @@ Here we will learn about
 3. Minikube & kubectl - Local Setup
 4. Main kubectl commands
 5. YAML Configuration File
-6. Demo Project
+6. Demo Project - 01 (Using of services)
 7. Organize components - Namespace
 8. Configure connectivity - Service
 9. Make app available from outside - Ingress
@@ -192,6 +192,7 @@ kubectl get pod
 kubectl get services
 kubectl get replicaset
 kebectl get deployment
+kebectl get secret
 
 ## Debugging
 
@@ -256,3 +257,9 @@ To get deployment status
 ```sh
 kubectl get deployment nginx-deployment -o yaml > nginx-deployment-status.yaml
 ```
+
+
+
+## 6. Demo Project - 01 (Using of services)
+
+Done [url]
