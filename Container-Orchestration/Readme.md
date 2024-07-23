@@ -208,3 +208,51 @@ kebectl apply -f nginx-deployment.yaml
 ## After editing anything to deployment, we need to apply those changes, with same command
 
 ```
+
+
+
+
+## 5. YAML Configuration File
+
+Each conf file has 3 major part.
+
+1. metadata
+2. specification
+3. status.
+
+
+Attributes of "spec" are specific to the kind. Deployment & Service have their own attributes in specification.
+
+
+Status is automatically generated and added by k8s.
+
+
+
+Layers of Abstraction
+
+1. Deployment manage Pods.
+2. 
+
+Connecting component (Labels & Selectors & Ports)
+
+Labels & Selector
+
+metadata part contains labels.
+spec part contains selectors.
+
+Service > spec > selector > app name should same as
+Deployment > metadata >  labels app name and 
+Deployment > spec > template > metadata > labels > app name
+
+Service's targetPort should same Deployment's containerPort should same.
+
+
+To get more info about pod
+```sh
+kubectl get pod -o wide
+```
+
+To get deployment status
+```sh
+kubectl get deployment nginx-deployment -o yaml > nginx-deployment-status.yaml
+```
