@@ -53,8 +53,42 @@ What feature do orchestration tools offer
 - lifecycle of Pod & Service NOT connected
 - app-service (http://my-app-service-ip:port)
 - db-service (http://my-db-service-ip:port)
+- Has it's own load balancer
 
 
 #### Ingress
 - External request comes to this (https://my-app.com)
 - So, request comes to ingress, then services
+
+
+#### ConfigMap
+- External configuration of your application
+- Pods are connected with ConfigMap
+- Don't put credentials into ConfigMap
+
+
+#### Secrets
+- Just like ConfigMap but to store secret data
+- base64 encoded
+- The built-it security mechanism is not enabled by default.
+- Based on 3rd party secutiry libracy, we can encrypt secrets
+- Pods are connected with Secrets also, and reads data from it.
+
+
+#### Volume
+- Attach a physical storage on that local machine
+- Or remote, outside of the K8s cluster
+- K8s doesn't manage data persistance
+
+
+#### Deployment
+- Blueprint for my-app pods
+- We create deployment, not Pod
+- Abstraction of Pods
+- Replica is connected with service (static IP with a load-balancer)
+
+
+#### StatefulSet
+- Deployment for stateLess Apps
+- StatefulSet for stateFul Apps or Databases (MySQL, Postgres, elasticsearch)
+- DB are often hosted outside of K8s cluster. Because, managing StatefulSet not an easy task to do.
