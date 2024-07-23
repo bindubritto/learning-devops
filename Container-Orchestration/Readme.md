@@ -35,7 +35,7 @@ What feature do orchestration tools offer
 - Scalability or high performance
 - Disaster recovery - backup or restore
 
-## Main k8s components
+## 2. Main k8s components
 
 
 
@@ -92,3 +92,119 @@ What feature do orchestration tools offer
 - Deployment for stateLess Apps
 - StatefulSet for stateFul Apps or Databases (MySQL, Postgres, elasticsearch)
 - DB are often hosted outside of K8s cluster. Because, managing StatefulSet not an easy task to do.
+
+
+
+## 2.1 Kubernetes Architechture
+
+2 types of nodes k8s operates.
+- Master
+- Slave / Worker
+
+
+##### Worker Node Processes
+
+- Each Node has multiple Pods on it.
+- 3 processes must be installed on every Node to manage
+- worker nodes do the actual work
+
+1. Container Runtime 
+
+To run containerized application.
+
+- docker
+- containerd ***
+- cri-o
+
+2. Kubelet
+
+kubelet interacts with both - the container and the node
+kubelet starts the pod with a container inside
+
+
+3. KubeProxy
+
+It has intelligent request forwarding logic
+
+Summary: 
+
+3 main component in worker node processes.
+1. Kubelet
+2. Kube Proxy
+3. Container Runtime
+
+
+
+##### Master Node Processes
+
+To manage worker node and interact with outside world. 4 proceses run on every master node.
+
+1. Api Server
+2. Scheduler
+3. Controller Manager
+4. etcd
+
+
+1. API SERVER
+- It is the cluster gateway
+- acts as a gatekeeper for authentication
+
+2. Scheduler
+- Scheduler has it's own intelligence where to put the Pod.
+- Scheduler just decides on which Node, a new pod should be scheduled. Then kubelet executes the request.
+
+3. Controller Manager
+- Detects cluster state changes
+- CM request to Scheduler, then scheduler to kubelet
+
+4. etcd
+- a key-value store
+- etcd is cluster brain
+
+
+
+
+## 3. Minikube & kubectl - Local Setup
+
+minikube is 1 node k8s cluster that runs on virtual box for testing pouposes.
+
+- Kubectl
+   To interact with k8s. K8s command line tool. kubectl
+
+
+
+## 4. Main kubectl commands
+
+```sh
+
+## CRUD
+
+kubectl create deployment nginx-deployment --image=nginx
+kebectl get deployment
+kubectl edit deployment nginx-deployment
+kebectl delete deployment <deployment_name>
+
+
+## Status of different K8s Components
+
+kubectl get nodes
+kubectl get pod
+kubectl get services
+kubectl get replicaset
+kebectl get deployment
+
+## Debugging
+
+kubectl logs <pod_name>
+kubectl describe pod <pod_name>
+kebectl exec -it <pod_name> --bin/bash
+
+
+## Manually apply changes to deployment using files
+
+kebectl apply -f <config-file.yml>
+kebectl apply -f nginx-deployment.yaml
+
+## After editing anything to deployment, we need to apply those changes, with same command
+
+```
