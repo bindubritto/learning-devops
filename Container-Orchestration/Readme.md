@@ -263,3 +263,127 @@ kubectl get deployment nginx-deployment -o yaml > nginx-deployment-status.yaml
 ## 6. Demo Project - 01 (Using of services)
 
 Done [url]
+
+
+## 7. Organize components - Namespace
+
+Namespace -> NS ~ ns
+
+- Virtual Cluster inside a k8s cluster.
+
+
+```sh
+kubeclt get namespace
+```
+
+4 ns by default.
+
+1. default
+2. kube-node-lease
+3. kube-public
+4. kube-system
+5. kubernetes-dashboard (only minikube specific, not available in production cluster)
+
+
+
+
+- kube-system ns is used for system process. User should not deploy anything in this ns.
+- kube-public ns is used for publicely acessible data. A configmap, which container cluster info.
+
+```sh
+kubectl cluster-info
+```
+This info comes from kube-public ns.
+
+
+- kube-node-lease
+   - heartbit of nodes
+   - each node has associated lease object in ns
+   - determines the availability of a node
+
+
+- default ns, comes with installations.
+
+```sh
+kubectl create namespace my-namespace
+```
+
+But good practice is creating using config file.
+
+```sh
+kind: Namespace
+```
+
+But why we need namespaces?
+
+
+1. Resources should grouped in Namespaces
+   - Database ns
+   - Monitoring ns
+   - Elastic Stack ns
+   - Nginx-Ingress ns
+   - Logging ns
+
+2. Conflict with naming, many teams, same application
+   - prod-frontend
+   - hermes
+   - p-stageenv
+
+3. Resource sharing: staging & development
+
+4. Blue/Green Deployment
+
+5. Access & Resource limits on Namespaces
+   - Each team has their own, secure, isolated environment
+   - Limit: CPU, RAM, Storage per NS. Resource Quota A, Resource Quota B
+
+Summary: Why we should use NS
+
+1. Structure your component
+2. Avoid conflict between teams
+3. Share service between different environment
+4. Access & Resource Limits on NS level
+
+
+
+Scenario or Characteristics of NS
+
+1. Each NS must define own configmap, secret
+2. Volumne is not namespaced. It is globally live inside cluster.
+
+```sh
+kubectl api-resources --namespaced=false
+kubectl api-resources --namespaced=true
+```
+
+When no ns is defined, it is going to default ns.
+
+
+Both are same.
+```sh
+kc get configmap -n default
+kc get configmap
+```
+
+
+To create configmap in a particular ns
+```sh
+kc apply -f mysql-configmap.yaml --namespace=my-namespace
+```
+
+But it is good to write a config file 
+
+To get configmap from that namespace
+
+```sh
+kc get configmap -n my-namespace
+```
+
+
+To change active namespace. kubens helps us to do this. This is not from k8s. 
+
+```sh
+brew install kubectx
+kubens  // to list and see active ns
+kubens my-namespace // to change active ns
+```
