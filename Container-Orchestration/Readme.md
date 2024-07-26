@@ -387,3 +387,83 @@ brew install kubectx
 kubens  // to list and see active ns
 kubens my-namespace // to change active ns
 ```
+
+
+## 8. Configure connectivity - Service
+
+Service Types
+1. ClusterIP Service
+2. Headless Service
+3. NodePort Service
+4. LoadBalancer Service
+
+- Pods comes with it's own IP address. But Pods are ephemeral - they are destroyed frequently.
+- Service have
+   - Stable IP Address
+   - loadbalancing by default
+   - loose coupling
+   - can connect within & outside from/to cluster
+
+
+1. ClusterIP Service
+
+This is a default type. When we create without specify type, then ClusterIP service will create.
+
+Service in K8s is just like a component like pod. But it's not a process, it's an abastraction.
+
+Service have an ip address & port.
+
+1. How does service know, which Pods to forward the request to? - Answer is selector
+
+** labels of Pods should match with selector of service.
+
+** Pods er label ta just a key-value pair. amra iccha moto name dite pari.
+
+** Service tar selector a thaka shob key value pair gulan deployment a match korar try korbe. jodi pay, tahole seigulan register korbe & endpoint banabe, jeno request forward korte pare.
+
+
+But if any pod has multiple ports opened, then what? Where service will forward that request?
+
+```sh
+targetPort: 3000
+```
+
+using targetPort attribute, service will know that it forward that request to 3000 port.
+
+
+Btw, we can create multiple containers inside a pod. One is main or application another called side-car container. 
+
+
+
+```sh
+kc get endpoints
+```
+
+K8s create Endpoint object, same name as Service.
+
+To keep track of, which Pods are the member/endpoint of the service.
+
+
+
+
+```sh
+port: 3200
+```
+
+Port is arbitary for service.
+But targetPort must match with the container listening at.
+
+
+
+Multi Port Service
+
+Suppose, our app service now need to talk with db service. So, we will create another service for that. Let's say, mongodb pod has another container, "mongodb-exporter" for metrics. And that container is listenting at 9216 port.
+
+So, if I have a prometheus then, it should connect through db service. So, db service have to have open two port. One for database container, another for metrics exporter.
+
+How k8s handle that? 
+
+Need to add name attribute for multiple port.
+
+- name: mongodb
+- name: mongodb-exporter
