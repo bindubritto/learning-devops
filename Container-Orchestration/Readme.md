@@ -467,3 +467,39 @@ Need to add name attribute for multiple port.
 
 - name: mongodb
 - name: mongodb-exporter
+
+
+
+2. Headless Service
+
+What if, client needs to talk with a one specific pod directly. This happend with stateful applications. Because, pod relicas are not identical.
+
+- Client need to talk with 1 specific pod directly (Master DB)
+- Pods wants to talk directly with specific pod.
+- So, not randomly selected.
+- Use case: Stateful applications, like databases.
+
+So, how can we figure out IP of pod?
+
+Option -1 
+
+k8s api call. But this is too tied to k8s api. Inefficient.
+
+Option - 2
+
+DNS Lookup
+
+DNS Lookup for service - returns single IP address (ClusterIP)
+
+But if we set clusterIP to none - then DNS Lookup returns Pod IP address instead. Which is our requirement.
+
+```sh
+spec:
+   clusterIP: None
+```
+
+So, when we deploy stateful application, we need to create 2 services.
+
+ClusterIP for load balancing between read-replica.
+Headless for write in master db.
+
