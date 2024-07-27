@@ -501,5 +501,47 @@ spec:
 So, when we deploy stateful application, we need to create 2 services.
 
 ClusterIP for load balancing between read-replica.
-Headless for write in master db.
+Headless for write in master db directly or read-replica to master directly for synchronization.
 
+
+
+3. NodePort Service
+
+External traffic has direct access to fixed port on each Worker Node.
+
+```sh
+nodePort: 30008
+```
+
+Range: 30000 - 32767
+
+curl http://<worker_node_ip>:nodePort
+
+When nodePort service is created, ClusterIP Service is automatically created.
+
+But nodePort is not much secure, because, we're exposing worker ip to outside world.
+
+
+
+4. LoadBalancer Service
+
+Load Balancer services becomes accessible externally through cloud provider LoadBalancer.
+
+AWS, Azure, GCP all has native loadbalancer service.
+
+When we create LoadBalancer Service type, NodePort & ClusterIP service created automatically.
+
+
+- LoadBalancer Service is an extension of NodePort Service.
+- NodePort Service is an extension of ClusterIP Service.
+
+
+In real k8s cluster, we never use nodeport service. It just for a quick debug/test that node is accessible or not.
+
+
+Ingress & LoadBalancer is in same layer, same position. 
+
+Ingress is k8s own service.
+LoadBalancer is also k8s own service but it uses cloud providers api.
+
+I need to understand it more deeply.
