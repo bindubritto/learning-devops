@@ -4,7 +4,7 @@ metadata:
   name: nginx-deployment
   labels:
     app: nginx
-spce:
+spec:
   replicas: 1
   selector:
     matchLabels:
@@ -18,4 +18,11 @@ spce:
       - name: nginx
         image: nginx:1.16
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"

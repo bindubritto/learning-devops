@@ -186,13 +186,19 @@ kebectl delete deployment <deployment_name>
 
 
 ## Status of different K8s Components
+kubectl config get-contexts
+kubectl config get-contexts -o name
+kc config use-context <context_name>
 
+
+kubectl get namespaces
 kubectl get nodes
 kubectl get pod
 kubectl get services
 kubectl get replicaset
-kebectl get deployment
-kebectl get secret
+kubectl get deployment
+kubectl get secret
+
 
 ## Debugging
 
@@ -201,9 +207,11 @@ kubectl describe pod <pod_name>
 kebectl exec -it <pod_name> --bin/bash
 
 
-## Manually apply changes to deployment using files
+# Create POD
+kubectl create -f nginx-pod.yaml
 
-kebectl apply -f <config-file.yml>
+## Manually apply changes to deployment using files
+kebectl apply -f <config-file.yaml>
 kebectl apply -f nginx-deployment.yaml
 
 ## After editing anything to deployment, we need to apply those changes, with same command
