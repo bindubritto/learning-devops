@@ -7,8 +7,7 @@ metadata:
     app: my-deployment
 
 spec:
-  replicas: 3
-  
+  replicas: 4
   template:
     metadata:
       labels:
@@ -16,7 +15,7 @@ spec:
     spec:
       containers:
         - name: nginx-image
-          image: nginx:1.16
+          image: nginx:1.17
           ports:
           - containerPort: 80
           resources:
